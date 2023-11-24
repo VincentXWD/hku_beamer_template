@@ -13,7 +13,7 @@
 \usepackage{listings} % For code display
 
 %---------------------------------------------------------
-%	FOOTNOTES & CITATIONS BASIC SETUP
+%   FOOTNOTES & CITATIONS BASIC SETUP
 %---------------------------------------------------------
 % Check FOOTNOTES & CITATIONS ADVANCED SETUP for solutions for intra- and inter-frame citations
 % The workarounds in ADVANCED SETUP require the style to be "numeric"
@@ -27,7 +27,7 @@
 \xapptobibmacro{cite}{\setunit{\nametitledelim} \printfield{title} \setunit{\nametitledelim} \printfield{year}}
 
 %---------------------------------------------------------
-%	FOOTNOTES & CITATIONS ADVANCED SETUP
+%   FOOTNOTES & CITATIONS ADVANCED SETUP
 %---------------------------------------------------------
 % Manage faulty intra- and inter-frame footnotes and citations. References:
 %     https://tex.stackexchange.com/a/520777
@@ -65,7 +65,7 @@
 {\usebibmacro{postnote}}
 
 %---------------------------------------------------------
-%	SELECT THEME & COLORS
+%   SELECT THEME & COLORS
 %---------------------------------------------------------
 \usetheme{Madrid} % You can use other themes too, but this changes many things. I've found Madrid to be the best for this color scheme
 
@@ -125,7 +125,7 @@
     \setbeamercolor{block body example}{bg=hku_green!10}
 
 %---------------------------------------------------------
-%	SELECT THE FONT THEME & FONTS
+%   SELECT THE FONT THEME & FONTS
 %---------------------------------------------------------
 \usefonttheme{default} % Typeset using the default sans serif font
 \usepackage{palatino} % Use the Palatino font for serif text
@@ -133,7 +133,7 @@
 \useinnertheme{circles}
 
 %---------------------------------------------------------
-%	SELECT THE OUTER THEME
+%   SELECT THE OUTER THEME
 %---------------------------------------------------------
 % Outer themes change the overall layout of slides, such as header and footer lines, sidebars and slide titles. Uncomment each theme in turns to see what changes it makes to your presentation.
 
@@ -148,14 +148,18 @@
 % \useoutertheme{smoothtree}
 
 %---------------------------------------------------------
-%	PRESENTATION INFORMATION
+%   PRESENTATION INFORMATION
 %---------------------------------------------------------
+
+% School logo
+% You can enable and disable logo display for each frame
+
 \title[HKU Beamer Template]{HKU Presentation Template}
 % Click the middle footer can switch between the first and last numbered frame
 \subtitle{Ver 1.0.0}
 
 \author[For Internal Use]{Author: Wendong XU}
-\institute[]{Department of Electrical and Electronic Engineering  \\ \fsmallskip \textit{wdxu@connect.hku.hk}}
+\institute[]{Department of Electrical and Electronic Engineering \\ \smallskip \textit{wdxu@connect.hku.hk}}
 \date[Nov 2023]
 % \date[\today]
 
@@ -164,7 +168,7 @@
 \logo{\includegraphics[width=2.5cm]{beamer/hku_logo_CE_C.png}}
 
 %---------------------------------------------------------
-%	CODE DISPLAY
+%   CODE DISPLAY
 %---------------------------------------------------------
 \lstset{
     basicstyle=\ttfamily\small,
@@ -180,7 +184,7 @@
 }
 
 %---------------------------------------------------------
-%	EXTRA SETTINGS
+%   EXTRA SETTINGS
 %---------------------------------------------------------
 
 % Clear warnings related to \translate
