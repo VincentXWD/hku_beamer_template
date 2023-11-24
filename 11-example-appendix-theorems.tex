@@ -1,0 +1,21 @@
+%------------------------------------------------
+\begin{frame}[noframenumbering]
+\label{Theorems}
+	\frametitle{Appendix - Theorems}
+    \begin{enumerate}
+        \item A single-line equation \newline
+        
+        \begin{equation*}
+            J(\theta) = \mathbb{E}_{\pi_\theta}[G_t] = \sum_{s\in\mathcal{S}} d^\pi (s)V^\pi(s)=\sum_{s\in\mathcal{S}} d^\pi(s)\sum_{a\in\mathcal{A}}\pi_\theta(a|s)Q^\pi(s,a)
+        \end{equation*}
+
+        \item A multi-line equation with numbering \newline
+        
+        \begin{align}
+            Q_\mathrm{target}&=r+\gamma Q^\pi(s^\prime, \pi_\theta(s^\prime)+\epsilon)\\
+            \epsilon&\sim\mathrm{clip}(\mathcal{N}(0, \sigma), -c, c)\nonumber
+        \end{align}
+    \end{enumerate}
+
+    \hyperlink{Maths}{\beamerreturnbutton{Return to presentation}}
+\end{frame}

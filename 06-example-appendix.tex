@@ -1,0 +1,18 @@
+%---------------------------------------------------------
+%	CLOSING SLIDE
+%---------------------------------------------------------
+
+% Remove headers from top
+\appendix
+\setbeamertemplate{headline}{
+    \nointerlineskip
+}
+\addtobeamertemplate{frametitle}{\vspace*{-\headheight}}{}
+
+\begin{frame}[noframenumbering] % The end and appendix slides don't contribute to the page count
+% [plain] % The optional argument 'plain' hides the headers and foot lines
+	% \frametitle{Q\&A}
+	\begin{center}
+            {\LARGE Questions?}
+	\end{center}
+\end{frame}

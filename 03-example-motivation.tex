@@ -1,0 +1,125 @@
+%---------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%---------------------------------------------------------
+\section{Motivation} % Note all sections and subsections are automatically placed in your table of contents
+
+%------------------------------------------------
+\begin{frame}
+    \frametitle{Title}
+    \begin{center}
+        \textbf{To use this template, just edit and add slides!} \newline
+    \end{center}
+
+    The remainder of these slides serves as an example of the features you can use: footnotes, citations, columns, mini pages, bullets, links, code, maths, etc.
+
+    \begin{center}
+        {\Huge\calligra Enjoy!}
+    \end{center}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+    \frametitle{Intra-frame Footnotes and Citations I}
+    
+    Citation in Beamer works slightly differently from conventional cites as Beamer rewrites its footnote and citation functions. 
+    A common issue is the duplication of footnotes in a frame when using \texttt{footcite}. \newline
+
+    This paper \footcite{payne2014art}, that paper \footcite{payne2014art}, and another paper \footcite{payne2014art}. \newline
+
+    And this paper \footcite{payne2014art}, that paper \footcite{payne2014art}, and another paper \footcite{payne2014art} again. 
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+    \frametitle{Inter-frame Footnotes and Citations I}
+
+    Another issue with \texttt{footcite} is the unwanted continuation of the footnote index. \newline
+
+    This paper \footcite{payne2014art}, that paper \footcite{payne2014art}, and another paper \footcite{payne2014art}. \newline
+
+    And this paper \footcite{payne2014art}, that paper \footcite{payne2014art}, and another paper \footcite{payne2014art} again. \newline
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+    \frametitle{Intra-frame Footnotes and Citations II}
+    
+    This template provides a workaround for these issues. 
+    Let's use the customized command \texttt{firstcite} when citing a reference in a frame for the first time, and \texttt{secondcite} for the following citations. \newline
+
+    This paper \firstcite{payne2014art}, that paper \firstcite{payne2014art}, and another paper \firstcite{payne2014art}. \newline
+
+    And this paper \secondcite{payne2014art}, that paper \secondcite{payne2014art}, and another paper \secondcite{payne2014art} again. 
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+    \frametitle{Inter-frame Footnotes and Citations II}
+
+    This workaround works for the inter-frame scenario as well. \newline
+
+    This paper \firstcite{payne2014art}, that paper \firstcite{payne2014art}, and another paper \firstcite{payne2014art}. \newline
+
+    And this paper \secondcite{payne2014art}, that paper \secondcite{payne2014art}, and another paper \secondcite{payne2014art} again. 
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+    \frametitle{Columns}
+    \framesubtitle{And Graphics}
+
+    Check this slide to see how columns made the formatting look nice.
+
+    \begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+        \begin{column}{0.5\textwidth} % Right column width
+            % To add an image
+            \begin{figure}[h!]
+                \centering
+                % \caption{Hawkins et al, 2015}
+                \includegraphics[angle=0, width=4.5cm]{ganyu.jpeg}
+                \label{Figure 1}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth} % Left column width
+            \begin{figure}[h!]
+                \centering
+                % \caption{Hawkins et al, 2015}
+                \includegraphics[angle=0, width=4.5cm]{keqing.jpeg}
+                \label{Figure 2}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+    \frametitle{Bullets}
+    You can use bullets too: \newline
+    \begin{itemize}
+        \item Like this one \newline
+        \item \& this one
+    \end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+    \label{Test} % For the link button for the Appendix slide
+    \frametitle{Sub-bullets and Links}
+
+    \begin{itemize}
+        \item You can also nest sub-bullets
+              \begin{itemize}
+                  \item Sub-bullet 1
+                  \item Sub-bullet 2
+                  \item Sub-bullet 3
+                  \item Sub-bullet 4 \newline
+              \end{itemize}
+    \end{itemize}
+
+    \textbf{Below is a button that links to a slide in the appendix}
+
+    \begin{center}
+        \hyperlink{Figure}{\beamergotobutton{Go to graphs}}
+    \end{center}
+\end{frame}

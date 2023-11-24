@@ -1,0 +1,220 @@
+\documentclass[
+    11pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+    aspectratio=169, % Set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+
+% This template is inspired by the VT Presentation Template, as well as the THU Beamer Theme. Many thanks!
+
+\graphicspath{{images/}{./}} % Specifies where to look for included images (trailing slash required)
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+\usepackage{calligra} % Font for wordart
+% \usepackage{appendixnumberbeamer} % If you want a separate slide counter for your appendix
+\usepackage{fnpct} % Eliminate the unwanted space before the footnote mark
+\usepackage{listings} % For code display
+
+%---------------------------------------------------------
+%	FOOTNOTES & CITATIONS BASIC SETUP
+%---------------------------------------------------------
+% Check FOOTNOTES & CITATIONS ADVANCED SETUP for solutions for intra- and inter-frame citations
+% The workarounds in ADVANCED SETUP require the style to be "numeric"
+% If you're good without ADVANCED SETUP, comment out the ADVANCED SETUP section, and pick whatever style you like
+% \usepackage[style=authoryear, backend=bibtex]{biblatex}
+\usepackage[style=numeric, sorting=none, backend=biber]{biblatex}
+\addbibresource{bib.bib}
+\setbeamerfont{footnote}{size=\tiny}
+% The lines below set the citation style to "number, title, year". The ADVANCED SETUP will overwrite this style
+\usepackage{xpatch}
+\xapptobibmacro{cite}{\setunit{\nametitledelim} \printfield{title} \setunit{\nametitledelim} \printfield{year}}
+
+%---------------------------------------------------------
+%	FOOTNOTES & CITATIONS ADVANCED SETUP
+%---------------------------------------------------------
+% Manage faulty intra- and inter-frame footnotes and citations. References:
+%     https://tex.stackexchange.com/a/520777
+%     https://topanswers.xyz/tex?q=453
+
+% You might want to use \firstcite and \secondcite instead of \footnote in your document
+% Mark the first citation with \firstcite and the rest with \secondcite
+
+% \renewcommand{\thefootnote}{\arabic{footnote}} % Switch to footnote with numbers
+% \renewcommand{\thefootnote}{\alph{footnote}} % Switch to footnote with letters
+
+\DeclareCiteCommand{\firstcite}
+{\usebibmacro{prenote}}
+{%
+    \footnotemark[\thefield{labelnumber}]% mark corresponding to the number entry
+    \footnotetext[\thefield{labelnumber}]{% footnote text corresponding to the number entry
+        \printnames{labelname}% name
+        \setunit{\printdelim{nametitledelim}}% separator
+        % \setunit{\addperiod\space}% another way to add separator
+        \printfield[citetitle]{labeltitle}% title
+        \setunit{\printdelim{nametitledelim}}% separator
+        \printfield{year}% year
+        \newunit{\adddot}% ending dot
+    }%
+}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\secondcite}
+{\usebibmacro{prenote}}
+{%
+    \footnotemark[\thefield{labelnumber}]% mark corresponding to the number entry
+}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+%---------------------------------------------------------
+%	SELECT THEME & COLORS
+%---------------------------------------------------------
+\usetheme{Madrid} % You can use other themes too, but this changes many things. I've found Madrid to be the best for this color scheme
+
+% fg = foreground color
+% bg = background color
+
+% Many colors are linked to multiple attributes, change with caution!
+\definecolor{hku_blue}{RGB}{0, 147, 204}
+\definecolor{hku_green}{RGB}{0, 170, 132}
+
+\setbeamercolor*{structure}{bg=hku_green, fg=hku_green}
+% Title block and bottom right box color
+\setbeamercolor*{palette primary}{use=structure, fg=white,bg=hku_green} % Bottom left box and bar between title & top bubbles
+\setbeamercolor*{palette secondary}{use=structure, fg=hku_green, bg=white}
+% Probably not used
+\setbeamercolor*{palette tertiary}{use=structure, fg=white, bg=hku_green} 
+
+% Title of each slide
+\setbeamercolor{frametitle}{bg=hku_green, fg=white}
+\setbeamercolor*{titlelike}{parent=palette primary}
+
+%%% Headline and Central Footer %%%
+% You can change the theme back and forth for each frame
+% Theme I - white head, white foot
+    % \setbeamercolor{section in head/foot}{fg=hku_blue, bg=white}
+    % \setbeamercolor{headline}{fg=hku_blue, bg=white}
+% Theme II - gold head, gold foot (as shown in the title frame)
+    \setbeamercolor{section in head/foot}{fg=white, bg=hku_blue}
+    \setbeamercolor{headline}{fg=white, bg=hku_blue}
+% Theme III - white head, gold foot (as shown in the rest of the frames)
+    % \setbeamercolor{section in head/foot}{fg=hku_blue, bg=white}
+    % \setbeamercolor{title in head/foot}{fg=white, bg=hku_blue}
+    % \setbeamercolor{headline}{fg=hku_blue, bg=white}
+
+%%% Specific Colors %%%
+\setbeamercolor{item projected}{bg=hku_blue}
+\setbeamertemplate{enumerate items}{bg=hku_blue}
+
+\setbeamercolor{itemize item}{fg=hku_blue}
+\setbeamercolor{itemize subitem}{fg=hku_blue}
+
+\setbeamercolor{button}{bg=hku_blue}
+
+%%% Edits ONLY the TOC slide %%%
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{fg=black}
+
+%%% Block Colors %%%
+% Standard block
+    \setbeamercolor{block title}{bg=hku_blue, fg=white}
+    \setbeamercolor{block body}{bg=hku_blue!20}
+% Alerted block
+    \setbeamercolor{block title alerted}{bg=orange, fg=white}
+    \setbeamercolor{block body alerted}{bg=orange!10}
+% Example block
+    \setbeamercolor{block title example}{bg=hku_green, fg=white}
+    \setbeamercolor{block body example}{bg=hku_green!10}
+
+%---------------------------------------------------------
+%	SELECT THE FONT THEME & FONTS
+%---------------------------------------------------------
+\usefonttheme{default} % Typeset using the default sans serif font
+\usepackage{palatino} % Use the Palatino font for serif text
+\usepackage[default]{opensans} % Use the Open Sans font for sans serif text
+\useinnertheme{circles}
+
+%---------------------------------------------------------
+%	SELECT THE OUTER THEME
+%---------------------------------------------------------
+% Outer themes change the overall layout of slides, such as header and footer lines, sidebars and slide titles. Uncomment each theme in turns to see what changes it makes to your presentation.
+
+% \useoutertheme{default}
+\useoutertheme{miniframes}
+% \useoutertheme{infolines}
+% \useoutertheme{smoothbars}
+% \useoutertheme{sidebar}
+% \useoutertheme{split}
+% \useoutertheme{shadow}
+% \useoutertheme{tree}
+% \useoutertheme{smoothtree}
+
+%---------------------------------------------------------
+%	PRESENTATION INFORMATION
+%---------------------------------------------------------
+\title[HKU Beamer Template]{HKU Presentation Template}
+% Click the middle footer can switch between the first and last numbered frame
+\subtitle{Ver 1.0.0}
+
+\author[For Internal Use]{Author: Wendong XU}
+\institute[]{Department of Electrical and Electronic Engineering  \\ \fsmallskip \textit{wdxu@connect.hku.hk}}
+\date[Nov 2023]
+% \date[\today]
+
+% School logo
+% You can enable and disable logo display for each frame
+\logo{\includegraphics[width=2.5cm]{beamer/hku_logo_CE_C.png}}
+
+%---------------------------------------------------------
+%	CODE DISPLAY
+%---------------------------------------------------------
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\bfseries\color{blue},
+    emphstyle=\ttfamily\color{red},   
+    stringstyle=\color{green},
+    numbers=left,
+    numberstyle=\small\color{gray},
+    rulesepcolor=\color{red!20!green!20!blue!20},
+    frame=shadowbox,
+    xleftmargin=1cm,
+    xrightmargin=1cm,
+}
+
+%---------------------------------------------------------
+%	EXTRA SETTINGS
+%---------------------------------------------------------
+
+% Clear warnings related to \translate
+%     https://github.com/josephwright/beamer/issues/449
+\pdfstringdefDisableCommands{
+    \def\translate#1{#1}
+}
+
+% Adjust header height
+\setbeamertemplate{headline}{
+    \nointerlineskip
+    \begin{beamercolorbox}[wd=\paperwidth,ht=7.0ex]{headline}
+        \insertnavigation{\paperwidth}\vspace*{2.0ex}
+    \end{beamercolorbox}
+}
+
+% Disable navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%---------------------------------------------------------
+%   DOCUMENT BEGINS
+%---------------------------------------------------------
+\begin{document}
+
+\input{01-title.tex}
+\input{02-contents.tex}
+\input{03-example-motivation.tex}
+\input{04-example-theory.tex}
+\input{05-example-conclusion.tex}
+\input{06-example-appendix.tex}
+\input{07-example-references.tex}
+\input{08-example-appendix-figures.tex}
+\input{09-example-appendix-terms.tex}
+\input{10-example-appendix-code.tex}
+\input{11-example-appendix-theorems.tex}
+
+\end{document}
